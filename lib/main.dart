@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_merc/models/cart.dart';
 import 'package:projeto_merc/models/product_list_provider.dart';
 import 'package:projeto_merc/utils/app_routes.dart';
+import 'package:projeto_merc/views/cart_page.dart';
 import 'package:projeto_merc/views/product_detail_page.dart';
 import 'package:projeto_merc/views/products_overview_page.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           AppRoutes.PRODUCT_DETAIL: (context) => const ProductDetailPage(),
+          AppRoutes.CART: (context) => const CartPage(),
         },
         home: ProdutctsOverviewPage(),
       ),

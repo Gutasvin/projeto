@@ -22,6 +22,13 @@ class Cart with ChangeNotifier {
     return total;
   }
 
+  void aumentaQuantity() {
+    items.forEach((key, cartItem) {
+      cartItem.quantity++;
+    });
+    notifyListeners();
+  }
+
   void addItem(Product product) {
     if (_items.containsKey(product.id)) {
       _items.update(

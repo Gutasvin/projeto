@@ -2,7 +2,7 @@ class CartItem {
   final String id;
   final String productId;
   final String name;
-  final int quantity;
+  int quantity;
   final double price;
 
   CartItem({
@@ -12,4 +12,8 @@ class CartItem {
     required this.quantity,
     required this.price,
   });
+
+  void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 }
