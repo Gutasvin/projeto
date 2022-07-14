@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_merc/components/cart_item_widget.dart';
 import 'package:projeto_merc/models/cart.dart';
+import 'package:projeto_merc/models/order_list.dart';
 import 'package:projeto_merc/models/product_list_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +41,12 @@ class CartPage extends StatelessWidget {
                     )),
                 Spacer(),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<OrderList>(context, listen: false)
+                          .addOrder(cart);
+
+                      cart.clear();
+                    },
                     style: TextButton.styleFrom(
                       textStyle: TextStyle(
                         color: Theme.of(context).primaryColor,

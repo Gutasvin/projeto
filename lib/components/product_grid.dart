@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_merc/components/product_item.dart';
+import 'package:projeto_merc/components/product_grid_item.dart';
 import 'package:projeto_merc/models/product.dart';
 import 'package:projeto_merc/models/product_list_provider.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +27,7 @@ class ProductGrid extends StatelessWidget {
         ),
         itemBuilder: (context, index) => ChangeNotifierProvider.value(
               value: loadedProducts[index],
-              child: ProductItem(),
+              child: ProductGridItem(),
             ));
   }
 }

@@ -37,6 +37,18 @@ class ProductDetailPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(product.description,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: TextStyle(
+                    fontSize: 18,
+                  )),
+            )
           ],
         ),
       ),

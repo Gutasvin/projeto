@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_merc/models/cart_items.dart';
 import 'package:projeto_merc/models/product.dart';
@@ -9,6 +11,26 @@ class Cart with ChangeNotifier {
 
   void removeItem(String productId) {
     _items.remove(productId);
+    notifyListeners();
+  }
+
+  void removeSingleItem(String productId) {
+    if (!_items.containsKey(productId)) {
+      return;
+    }
+    if (_items[productId]?.quantity == 1) {
+      _items.remove(productId);
+    } else {
+      _items.update(
+          productId,
+          (existingItem) => CartItem(
+                id: existingItem.id,
+                name: existingItem.name,
+                quantity: existingItem.quantity - 1,
+                price: existingItem.price,
+                productId: existingItem.productId,
+              ));
+    }
     notifyListeners();
   }
 
@@ -44,7 +66,7 @@ class Cart with ChangeNotifier {
       _items.putIfAbsent(
           product.id,
           () => CartItem(
-                id: DateTime.now().toString(),
+                id: Random().nextInt(10000).toString(),
                 name: product.name,
                 quantity: 1,
                 price: product.price,
